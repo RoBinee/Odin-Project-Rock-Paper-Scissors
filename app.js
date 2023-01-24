@@ -1,17 +1,8 @@
 function getComputerChoice(){
+    const choices = ["rock", "paper", "scissors"];
     const randomNum = Math.floor(Math.random() * 3);
-    
-    switch(randomNum){
-        case 0:
-            return "rock"
-        break;
-        case 1:
-            return "paper"
-        break;
-        case 2:
-            return "scissors"
-        break;
-    }
+
+    return choices[randomNum]
 }
 
 function playRound(playerSelection, computerSelection){
@@ -57,3 +48,11 @@ function game(){
         console.log("@both are winner!")
     }
 }
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", ()=>{
+
+    })
+})
