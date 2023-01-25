@@ -1,3 +1,5 @@
+const result = document.querySelector(".result")
+
 function getComputerChoice(){
     const choices = ["rock", "paper", "scissors"];
     const randomNum = Math.floor(Math.random() * 3);
@@ -6,13 +8,9 @@ function getComputerChoice(){
 }
 
 function playRound(buttonId){
-    //01.24 code
-    //get user input && get computer choice
     let playerSelection = buttonId.toLowerCase();
     let computerSelection = getComputerChoice();
     let winner;
-
-    console.log(`computer: ${computerSelection}  player: ${playerSelection}`);
 
     if(playerSelection === computerSelection){
         winner = "no one"
@@ -24,8 +22,9 @@ function playRound(buttonId){
         }else if(playerSelection === "scissors")
             computerSelection === "rock" ?  winner = "computer" : winner = "player"
     }
-    console.log(`winner is ${winner}`)
 
+    result.textContent = `computer: ${computerSelection}  player: ${playerSelection} // winner is ${winner}`
+    
     return winner
 }
 
