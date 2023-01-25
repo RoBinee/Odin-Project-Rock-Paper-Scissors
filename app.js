@@ -5,14 +5,14 @@ function getComputerChoice(){
     return choices[randomNum]
 }
 
-function playRound(){
+function playRound(buttonId){
     //01.24 code
     //get user input && get computer choice
-    let playerSelection = prompt("Rock, Siccors, Paper!");
-    playerSelection = playerSelection.toLowerCase();
+    let playerSelection = buttonId.toLowerCase();
     let computerSelection = getComputerChoice();
-    
     let winner;
+
+    console.log(`computer: ${computerSelection}  player: ${playerSelection}`);
 
     if(playerSelection === computerSelection){
         winner = "no one"
@@ -24,6 +24,8 @@ function playRound(){
         }else if(playerSelection === "scissors")
             computerSelection === "rock" ?  winner = "computer" : winner = "player"
     }
+    console.log(`winner is ${winner}`)
+
     return winner
 }
 
@@ -57,5 +59,7 @@ function game(){
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach(btn => {
-    btn.addEventListener("click", playRound)
+    btn.addEventListener("click", (e)=>{
+        playRound(e.currentTarget.dataset.id)
+    })
 })
