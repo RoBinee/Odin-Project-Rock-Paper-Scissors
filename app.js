@@ -8,10 +8,11 @@ function getComputerChoice(){
 
 const result = document.querySelector(".result")
 
-function playRound(buttonId){
-    let playerSelection = buttonId.toLowerCase();
-    let computerSelection = getComputerChoice();
+function playRound(e){
+    const playerSelection = e.currentTarget.dataset.id.toLowerCase();
+    const computerSelection = getComputerChoice();
     let winner;
+    let desc;
 
     if(playerSelection === computerSelection){
         winner = "no one"
@@ -24,7 +25,14 @@ function playRound(buttonId){
             computerSelection === "rock" ?  winner = "computer" : winner = "player"
     }
 
-    result.textContent = `computer: ${computerSelection}  player: ${playerSelection} , winner is ${winner}`
+    if(winner === "computer"){
+        desc = `Computer win, ${computerSelection} beats ${playerSelection}`
+    }else if(winner === "player"){
+        desc = `You win, ${playerSelection} beats ${computerSelection}`
+    }else if(winner === "no one"){
+        desc = `The game ended in a tie, ${playerSelection} and ${computerSelection}`
+    }
+    result.textContent = desc;
     //display the score
     displayScore(winner);
 }
@@ -50,6 +58,10 @@ function displayScore(winner){
     }else if(computerScore === 5){
         result.textContent = `The winner is computer!`
     }
+    if(playerScore === 5 || computerScore === 5){
+        removeEventListener()
+    }
+    //whenever reach 5scores.. stop it
 }
 
 function game(){
@@ -82,7 +94,11 @@ function game(){
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach(btn => {
-    btn.addEventListener("click", (e)=>{
-        playRound(e.currentTarget.dataset.id)
-    })
+    btn.addEventListener("click", playRound)
 })
+
+function removeEventListener(){
+    buttons.forEach(btn => {
+        btn.removeEventListener("click", playRound)
+    })
+}
