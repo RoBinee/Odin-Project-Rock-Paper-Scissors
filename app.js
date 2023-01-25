@@ -1,4 +1,3 @@
-const result = document.querySelector(".result")
 
 function getComputerChoice(){
     const choices = ["rock", "paper", "scissors"];
@@ -6,6 +5,8 @@ function getComputerChoice(){
 
     return choices[randomNum]
 }
+
+const result = document.querySelector(".result")
 
 function playRound(buttonId){
     let playerSelection = buttonId.toLowerCase();
@@ -23,9 +24,32 @@ function playRound(buttonId){
             computerSelection === "rock" ?  winner = "computer" : winner = "player"
     }
 
-    result.textContent = `computer: ${computerSelection}  player: ${playerSelection} // winner is ${winner}`
-    
-    return winner
+    result.textContent = `computer: ${computerSelection}  player: ${playerSelection} , winner is ${winner}`
+    //display the score
+    displayScore(winner);
+}
+
+let playerScore = 0;
+let computerScore = 0;
+
+function displayScore(winner){
+    const playerScoreBox = document.querySelector(".player-score");
+    const computerScoreBox = document.querySelector(".computer-score");
+
+    if(winner === "computer"){
+        computerScore++;
+    }else if(winner === "player"){
+        playerScore++;
+    }
+
+    playerScoreBox.textContent = playerScore;
+    computerScoreBox.textContent = computerScore;
+
+    if(playerScore === 5){
+        result.textContent = `The winner is player!`
+    }else if(computerScore === 5){
+        result.textContent = `The winner is computer!`
+    }
 }
 
 function game(){
