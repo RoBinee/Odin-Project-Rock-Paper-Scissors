@@ -58,7 +58,8 @@ section{
     align-items: center;
     justify-content: space-around;
     flex-grow: 2;
-    background: var(--white)
+    background: var(--white);
+    flex-wrap: wrap;
 }
 .choice{
     color: var(--font-clr);
@@ -71,17 +72,19 @@ section{
 #rock:hover{
     background: #FFF4FB;
     color: #FF7BB1;
+    transform: scale(1.1);
 }
 
 #scissors:hover{
     background: #FFE6D7;
     color: #FF8A5F;
-
+    transform: scale(1.1);
 }
 
 #paper:hover{
     background: #F2ECFF;
     color: #8083FF;
+    transform: scale(1.1);
 }
 
 .result{
