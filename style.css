@@ -1,0 +1,92 @@
+
+:root{
+    --bckground-clr: #F5F5F5;
+    --font-clr:#303030;
+    --white:#ffffff;
+}
+
+*,::before,::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    background: var(--bckground-clr);
+    color: var(--font-clr);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    cursor: pointer;
+    outline: none;
+    border: transparent;
+    background: transparent;
+}
+
+section{
+    width: 50%;
+    height: 70vh;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title,.score-container,.choice-container,.result{
+    flex: 1;
+}
+
+.title{
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scores{
+    text-align: center;
+    padding: 2rem;
+}
+
+.choice-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-grow: 2;
+    background: var(--white)
+}
+.choice{
+    color: var(--font-clr);
+    font-size: 6rem;
+    padding: 2rem 3rem;
+    border-radius: 100%;
+    transition: all 0.2s;
+}
+
+#rock:hover{
+    background: #FFF4FB;
+    color: #FF7BB1;
+}
+
+#scissors:hover{
+    background: #FFE6D7;
+    color: #FF8A5F;
+
+}
+
+#paper:hover{
+    background: #F2ECFF;
+    color: #8083FF;
+}
+
+.result{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
