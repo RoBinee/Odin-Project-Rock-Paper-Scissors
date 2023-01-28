@@ -1,3 +1,12 @@
+const result = document.querySelector(".result");
+const buttons = document.querySelectorAll("button");
+let playerScore = 0;
+let computerScore = 0;
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", playRound)
+})
+
 
 function getComputerChoice(){
     const choices = ["rock", "paper", "scissors"];
@@ -5,8 +14,6 @@ function getComputerChoice(){
 
     return choices[randomNum]
 }
-
-const result = document.querySelector(".result")
 
 function playRound(e){
     const playerSelection = e.currentTarget.dataset.id.toLowerCase();
@@ -37,9 +44,6 @@ function playRound(e){
     displayScore(winner);
 }
 
-let playerScore = 0;
-let computerScore = 0;
-
 function displayScore(winner){
     const playerScoreBox = document.querySelector(".player-score");
     const computerScoreBox = document.querySelector(".computer-score");
@@ -63,12 +67,6 @@ function displayScore(winner){
     }
     //whenever reach 5scores.. stop it
 }
-
-const buttons = document.querySelectorAll("button");
-
-buttons.forEach(btn => {
-    btn.addEventListener("click", playRound)
-})
 
 function removeEventListener(){
     buttons.forEach(btn => {
