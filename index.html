@@ -10,18 +10,25 @@
     <script src="https://kit.fontawesome.com/7b4bb4f271.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1 class="title">Rock, Scissors, Paper!</h1>
-    <h2>player <span class="player-score">0</span> : computer <span class="computer-score">0</span></h2>
-    <button data-id="Rock">
-        <i class="fa-regular fa-hand-back-fist"></i>
-    </button>
-    <button data-id="Scissors">
-        <i class="fa-regular fa-hand-scissors"></i>
-    </button>
-    <button data-id="Paper">
-        <i class="fa-regular fa-hand"></i>
-    </button>
-    <div class="result"></div>
+    <section>
+        <h1 class="title">Rock, Scissors, Paper!</h1>
+        <div class="score-container">
+            <h2>Player <span class="player-score">0</span> : <span class="computer-score">0</span> Computer</h2>
+        </div>
+        <div class="choice-container">
+            <button data-id="Rock">
+                <i class="fa-regular fa-hand-back-fist"></i>
+            </button>
+            <button data-id="Scissors">
+                <i class="fa-regular fa-hand-scissors"></i>
+            </button>
+            <button data-id="Paper">
+                <i class="fa-regular fa-hand"></i>
+            </button>
+        </div>
+        <div class="result"></div>
+    </section>
+    <!-- js -->
     <script src="./app.js"></script>
 </body>
 </html>
